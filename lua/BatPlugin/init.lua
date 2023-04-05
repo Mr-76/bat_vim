@@ -9,6 +9,15 @@ local function Bat()
 --end))
 end
 
+
+local function Tech()
+	local handle = io.popen("cat /sys/class/power_supply/BAT1/technology")
+	local result2 = string.gsub(handle:read("*a"),"\n"," ")
+	handle:close()
+	print("battery Tech is  ",result2,"%")
+--end))
+end
+
 return {
-	Bat=Bat 
+	Bat=Bat,Tech=Tech,
 }
